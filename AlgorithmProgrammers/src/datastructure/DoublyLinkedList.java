@@ -36,6 +36,9 @@ class DoublyLinkedList {
             Node curr = head;
             head = new Node(value, curr, null);
             curr.prev = head;
+            if (curr.next == null) {
+                tail = curr;
+            }
         }
         return true;
 
@@ -74,6 +77,9 @@ class DoublyLinkedList {
                 }
             }
             head = curr;
+            if (head.next != null ) {
+                tail = head;
+            }
             return true;
         }
     }
@@ -113,6 +119,7 @@ class DoublyLinkedList {
             }
             prev.next = new Node(value, curr, prev);
             curr.prev = prev.next;
+
             return true;
         }
     }
@@ -210,5 +217,6 @@ class DoublyLinkedListTest {
 
         myList.setHead(10);
         System.out.println(myList);
+        System.out.println(myList.toStringInv());
     }
 }
