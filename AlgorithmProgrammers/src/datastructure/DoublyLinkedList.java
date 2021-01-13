@@ -96,7 +96,6 @@ class DoublyLinkedList {
                     curr = curr.next;
                 }
             }
-            head = curr;
             return curr.value;
         }
     }
@@ -183,8 +182,6 @@ class DoublyLinkedList {
             str += curr.value +",";
             curr = curr.prev;
         }
-        str = str.substring(str.length()-1);
-
 
         return str;
     }
@@ -212,7 +209,7 @@ class DoublyLinkedListTest {
         myList.insert(8, 128);
         System.out.println(myList);
 
-        myList.remove(17);
+        myList.remove(4);
         System.out.println(myList);
 
         myList.setHead(10);
