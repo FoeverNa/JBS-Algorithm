@@ -1,4 +1,4 @@
-package datastructure;
+package datastructure.queue;
 
 class LinearQueue {
     private int capacity;
