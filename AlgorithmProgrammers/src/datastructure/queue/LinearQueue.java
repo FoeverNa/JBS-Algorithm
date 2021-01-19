@@ -34,7 +34,7 @@ class LinearQueue {
 
     public int peek() {
 
-        if(array.length == 0 || front >= rear) {
+        if(this.front == this.rear) {
             return -1;
         } else {
             return array[front];
