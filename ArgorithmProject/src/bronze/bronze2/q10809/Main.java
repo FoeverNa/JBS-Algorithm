@@ -1,3 +1,5 @@
+package bronze.bronze2.q10809;
+
 import java.io.*;
 
 public class Main {
