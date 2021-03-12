@@ -1,3 +1,5 @@
+package bronze.bronze2.q2675;
+
 import java.io.*;
 import java.util.StringTokenizer;
 
@@ -9,7 +11,7 @@ public class Main {
         StringTokenizer st;
         StringBuilder sb = new StringBuilder();
         int testNum = Integer.parseInt(bf.readLine());
-
+        
         for (int i = 0; i < testNum ; i++) {
             st = new StringTokenizer(bf.readLine());
             int rotation = Integer.parseInt(st.nextToken());
