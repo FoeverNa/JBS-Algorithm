@@ -33,6 +33,7 @@ public class Main {
                     if (answer < sum && sum <=M) {
                         answer = sum;
                     }
+                    //M과 같은수가 나오면 break한다
                     if (answer == M) {
                         break here;
                     }
