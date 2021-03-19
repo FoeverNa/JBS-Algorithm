@@ -21,7 +21,6 @@ class Main {
         }
         Set<String> keySet = map.keySet();
 
-        map.
         int max = -1;
         String maxKey = "";
         int sameMax = -1;
