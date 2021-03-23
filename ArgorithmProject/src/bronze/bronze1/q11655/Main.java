@@ -1,14 +1,12 @@
-package bronze.bronze1.q11655;
-
 import java.io.*;
 
 class Main{
 
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         String s = bf.readLine();
 
+        StringBuilder sb = new StringBuilder();
         for(int i =0; i < s.length(); i++) {
             char val =  s.charAt(i);
             if('A'<= val & val <= 'Z') {
@@ -22,9 +20,8 @@ class Main{
                     val -= 26;
                 }
             }
-            bw.write(val);
+            sb.append(val);
         }
-        bw.flush();
-        bw.close();
+        System.out.println(sb);
     }
 }
