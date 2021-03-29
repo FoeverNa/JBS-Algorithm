@@ -3,8 +3,8 @@ package silver.s5.q1185;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 class Main{
 
@@ -14,32 +14,27 @@ class Main{
         int n = Integer.parseInt(split[0]);
         int k = Integer.parseInt(split[1]);
 
-        // List로 1~N까지의 값 초기화
-        List<Integer> list = new ArrayList<>();
+        // 큐를 선언하고 1~N까지 값 초기화
+        Queue<Integer> que = new LinkedList<>();
         for(int i = 1; i <= n; i++) {
-            list.add(i);
+            que.offer(i);
         }
 
         // 요세푸스 구하기
         StringBuilder sb = new StringBuilder();
-        int index = -1;
         sb.append("<");
-        int val;
-        while(n > 0) {
-            index += k;
-            //index가 n을 초과할때 0부터 시작할수있 도록
-            if( index >= n) {
-                index = index % n;
+        // 마지막 출력값을 다르게 주기 위해 size> 1만큼만 돌린다
+        while(que.size() > 1) {
+            //k-1번 큐에서 값을 꺼내 다시 넣는다
+            for(int i = 0; i < k-1; i++) {
+                Integer val = que.poll();
+                que.offer(val);
             }
-            val = list.remove(index);
-            sb.append(val);
-            index--; n--;
-            // 맨자미작에는 ,이 안들어가게 범위설정
-            if (n > 0){
-                sb.append(",").append(" ");
-            }
+            //k번째 값을 꺼내서 출력한다
+            Integer val = que.poll();
+            sb.append(val).append(",").append(" ");
         }
-        sb.append(">");
+        sb.append(que.poll()).append(">");
 
         System.out.println(sb);
     }
