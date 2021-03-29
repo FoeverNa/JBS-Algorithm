@@ -23,21 +23,18 @@ class Main {
 
         List<String> list = new ArrayList<>(set);
 
-        Collections.sort(list);
-
-        list.sort(Comparator.comparingInt(String::length));
+        list.sort((s1, s2) -> {
+            if (s1.length()  == s2.length()) {
+                return(s1.compareTo(s2));
+            } else {
+                return s1.length() - s2.length();
+            }
+        });
 
         for(String s : list) {
             bw.write(s + "\n");
         }
         bw.flush();
         bw.close();
-    }
-}
-
-class ListComparator implements Comparator<String> {
-    @Override
-    public int compare(String a, String b) {
-        return a.length() - b.length();
     }
 }
