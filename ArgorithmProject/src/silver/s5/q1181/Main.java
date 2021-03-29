@@ -25,7 +25,7 @@ class Main {
 
         Collections.sort(list);
 
-        list.sort(new ListComparator());
+        list.sort(Comparator.comparingInt(String::length));
 
         for(String s : list) {
             bw.write(s + "\n");
