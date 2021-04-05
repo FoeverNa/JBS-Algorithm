@@ -18,15 +18,14 @@ class Main {
             System.out.println(1);
         } else {
             while(true) {
-                int half = bar /2;
-                sum -= half;
+                bar /= 2;
+                sum -= bar;
                 if (X == sum) {
                     break;
                 } else if (X > sum) {
-                    sum += half;
+                    sum += bar;
                     num++;
                 }
-                bar = half;
             }
             System.out.println(num);
         }
