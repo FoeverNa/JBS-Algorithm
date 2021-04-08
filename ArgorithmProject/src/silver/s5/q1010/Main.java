@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 class Main {
 
-    private static int[][] dp;
+    private static int[][] dp = new int[30][30];
 
     public static void main(String[] args) throws IOException{
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
@@ -17,7 +17,6 @@ class Main {
             StringTokenizer st = new StringTokenizer(bf.readLine());
             int k = Integer.parseInt(st.nextToken());
             int n = Integer.parseInt(st.nextToken());
-            dp = new int[n+1][k+1];
             sb.append(combination(n, k)).append("\n");
         }
         System.out.println(sb);
