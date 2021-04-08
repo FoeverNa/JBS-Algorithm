@@ -3,12 +3,11 @@ package silver.s5.q11732;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 class Main {
 
-    static boolean[] arr = new boolean[20];
+    static int bitset = 0;
 
     public static void main (String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
@@ -32,33 +31,28 @@ class Main {
     }
 
     private static int operation(String order, int num) {
-        num = num - 1;
+        num = num -1;
         int val = -1;
         switch(order) {
             case "add":
-                if (!arr[num]) {
-                    arr[num] = true;
-                }
+                bitset = bitset | (1 << num);
                 break;
             case "remove":
-                if (arr[num]) {
-                    arr[num] = false;
-                }
+                bitset = bitset & ~(1 << num);
                 break;
             case "check":
-                val = arr[num] ? 1 : 0;
+                val = (bitset & (1 << num)) > 0 ? 1 : 0;
                 break;
             case "toggle":
-                arr[num] = !arr[num];
+                bitset = (bitset ^(1 << num));
                 break;
             case "all":
-                Arrays.fill(arr, true);
+                bitset = (~0);
                 break;
             case "empty":
-                Arrays.fill(arr, false);
+                bitset = 0;
                 break;
         }
         return val;
     }
 }
-
