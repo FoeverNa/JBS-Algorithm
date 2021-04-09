@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 class Main {
 
     public static void main(String[] args ) throws IOException{
@@ -16,13 +20,8 @@ class Main {
         while(count < n) {
             num++;
             String s = String.valueOf(num);
-            for(int i =0; i < s.length(); i++) {
-                if (s.length() -i >= 3 && s.charAt(i) == '6') {
-                    if( s.charAt(i+1) == '6' && s.charAt(i+2) == '6') {
-                        count++;
-                        break;
-                    }
-                }
+            if(s.contains("666")) {
+                count++;
             }
         }
         System.out.println(num);
