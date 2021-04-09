@@ -17,8 +17,8 @@ class Main {
             num++;
             String s = String.valueOf(num);
             for(int i =0; i < s.length(); i++) {
-                if (s.charAt(i) == '6') {
-                    if(s.length() -i >= 3 && s.charAt(i+1) == '6' && s.charAt(i+2) == '6') {
+                if (s.length() -i >= 3 && s.charAt(i) == '6') {
+                    if( s.charAt(i+1) == '6' && s.charAt(i+2) == '6') {
                         count++;
                         break;
                     }
