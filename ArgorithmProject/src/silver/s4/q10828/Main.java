@@ -7,12 +7,11 @@ import java.util.StringTokenizer;
 
 class Main {
 
-    static int[] stack = new int[10];
-    static int capa = 10;
+    static int[] stack = new int[10000];
     static int size = 0;
 
     public static void main(String[] args) throws IOException {
-        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader bf = new BufferedReader(new InputStreamReader(java.lang.System.in));
         int t = Integer.parseInt(bf.readLine());
         StringTokenizer st;
 
@@ -31,21 +30,13 @@ class Main {
                 sb.append(result).append("\n");
             }
         }
-        System.out.println(sb);
+        java.lang.System.out.println(sb);
     }
 
     private static Integer operation(String o, int num) {
         Integer val = null;
         switch(o) {
             case "push":
-                if(size == capa) {
-                    int[] newArr = new int[capa*2];
-                    for (int i = 0; i < size ; i++) {
-                        newArr[i] = stack[i];
-                    }
-                    stack = newArr;
-                    capa *= 2;
-                }
                 stack[size] = num;
                 size++;
                 break;
