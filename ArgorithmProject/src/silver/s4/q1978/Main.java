@@ -7,33 +7,39 @@ import java.util.StringTokenizer;
 
 
 class Main {
+
+    static  int max = 1000;
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(bf.readLine());
+
+        boolean[] arr = new boolean[max+1];
+
+        che(arr);
+
         StringTokenizer st = new StringTokenizer(bf.readLine());
-        boolean[] arr = new boolean[1001];
+        int count =0;
         for (int i = 0; i < n ; i++) {
             int val = Integer.parseInt(st.nextToken());
-            arr[val] = true;
+            if (!arr[val]) {
+                count ++;
+            }
         }
-        int result = che(arr);
-        System.out.println(result);
+        System.out.println(count);
+
     }
 
-    private static int che(boolean[] arr) {
-        int count = 0;
+    private static void che(boolean[] arr) {
+        arr[0] = true;
+        arr[1] = true;
 
-        for (int i = 2; i <=1000 ; i++) {
+        for (int i = 2; i <= Math.sqrt(max) ; i++) {
             if(arr[i]) {
-                count++;
+                continue;
             }
-            for (int j = 2; j <= 500 ; j++) {
-                if(i*j >1000) {
-                    break;
-                }
-                arr[i*j] = false;
+            for (int j = i*i; j <= max; j+=i) {
+                arr[j] =true;
             }
         }
-        return count;
     }
 }
