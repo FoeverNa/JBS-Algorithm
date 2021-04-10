@@ -24,16 +24,14 @@ class Main {
         int count = 0;
 
         for (int i = 2; i <=1000 ; i++) {
-            for (int j = 2; j <= 500 ; j++) {
-                    if(i*j >1000) {
-                        break;
-                    }
-                    arr[i*j] = false;
-                }
-        }
-        for (int i = 2; i <arr.length ; i++) {
-            if (arr[i]){
+            if(arr[i]) {
                 count++;
+            }
+            for (int j = 2; j <= 500 ; j++) {
+                if(i*j >1000) {
+                    break;
+                }
+                arr[i*j] = false;
             }
         }
         return count;
