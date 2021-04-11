@@ -3,6 +3,7 @@ package silver.s4.q9012;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Stack;
 
 
 class Main {
@@ -11,25 +12,25 @@ class Main {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         int t = Integer.parseInt(bf.readLine());
 
-        int left, right;
         StringBuilder sb = new StringBuilder();
+        Stack<Character> stack;
         for (int i = 0; i < t; i++) {
             String s = bf.readLine();
-            left = 0;
-            right = 0;
-
+            stack = new Stack<>();
             for (int j = 0; j < s.length(); j++) {
                 char c = s.charAt(j);
                 if (c == '(') {
-                    left++;
+                    stack.push('(');
                 } else {
-                    right++;
-                }
-                if (right > left) {
-                    break;
+                    if (stack.empty()) {
+                        stack.push('(');
+                        break;
+                    } else {
+                        stack.pop();
+                    }
                 }
             }
-            if (left == right) {
+            if (stack.empty()) {
                 sb.append("YES").append("\n");
             } else {
                 sb.append("NO").append("\n");
