@@ -26,18 +26,15 @@ class Main {
                     right++;
                 }
                 if (right > left) {
-                    sb.append("NO").append("\n");
                     break;
                 }
-
-                if (j == s.length() - 1 && left == right) {
-                    sb.append("YES").append("\n");
-                } else if(j == s.length() - 1 && left != right){
-                    sb.append("NO").append("\n");
-                }
+            }
+            if (left == right) {
+                sb.append("YES").append("\n");
+            } else {
+                sb.append("NO").append("\n");
             }
         }
         System.out.println(sb);
     }
 }
-
