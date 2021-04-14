@@ -11,16 +11,18 @@ class Main {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         int k = Integer.parseInt(bf.readLine());
 
-        Stack<Integer> stack = new Stack<>();
-
+        int[] stack = new int[k];
+        int top = 0;
         int sum = 0;
         for (int i = 0; i < k ; i++) {
             int num = Integer.parseInt(bf.readLine());
             if (num > 0) {
                 sum+= num;
-                stack.add(num);
+                stack[top] = num;
+                top++;
             } else {
-                sum -= stack.pop();
+                sum -= stack[top-1];
+                top--;
             }
         }
         System.out.println(sum);
