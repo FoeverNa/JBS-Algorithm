@@ -22,21 +22,20 @@ class Main {
         StringBuilder sb = new StringBuilder();
         sb.append("<");
         int index = 0;
-        int count = 0;
-        while (count < n) {
-            int num = 0;
-            while(num < k) {
+
+        for(int i = 0; i < n; i++) {
+            int count = 0;
+            while(count < k) {
                 index++;
                 if (index > n) {
                     index = 1;
                 }
                 if(arr[index]) {
-                    num++;
+                    count++;
                 }
             }
             sb.append(index).append(", ");
             arr[index] = false;
-            count++;
         }
         sb.replace(sb.length()-2, sb.length()-1, ">");
         System.out.println(sb);
