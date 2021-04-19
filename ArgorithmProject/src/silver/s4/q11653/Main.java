@@ -12,13 +12,16 @@ class Main {
 
         int i = 2;
         StringBuilder sb = new StringBuilder();
-        while(i <= n) {
+        while(i <= Math.sqrt(n)) {
             if ( n % i == 0) {
                 sb.append(i).append("\n");
                 n /= i;
             } else {
                 i++;
             }
+        }
+        if (n != 1) {
+            sb.append(n);
         }
         System.out.println(sb);
     }
